@@ -16,8 +16,8 @@ GO
 
 CREATE TABLE bronze.encounters (
 	id						NVARCHAR(50),
-	start_datatime			DATETIME,
-	end_datatime			DATETIME,
+	start_datetime			DATETIME,
+	end_datetime			DATETIME,
 	patient					NVARCHAR(50),
 	organization			NVARCHAR(50),
 	payer					NVARCHAR(50),
