@@ -15,19 +15,19 @@ IF OBJECT_ID('bronze.encounters','U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.encounters (
-	id						NVARCHAR(50),
+	id				NVARCHAR(50),
 	start_datetime			DATETIME,
 	end_datetime			DATETIME,
-	patient					NVARCHAR(50),
+	patient				NVARCHAR(50),
 	organization			NVARCHAR(50),
-	payer					NVARCHAR(50),
+	payer				NVARCHAR(50),
 	encounter_class			NVARCHAR(50),
-	code					INT,
+	code				INT,
 	type_encounter			NVARCHAR(100),
 	base_encounter_cost		FLOAT,
 	total_claim_cost		FLOAT,
 	payer_coverage			FLOAT,
-	reason_code				BIGINT,
+	reason_code			BIGINT,
 	reason_description		NVARCHAR(100)
 );
 GO
@@ -37,7 +37,7 @@ IF OBJECT_ID('bronze.patients','U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.patients(
-	id				NVARCHAR(50),
+	id			NVARCHAR(50),
 	birth_date		DATE,
 	death_date		DATE,
 	prefix			NVARCHAR(50),
@@ -54,9 +54,9 @@ CREATE TABLE bronze.patients(
 	city			NVARCHAR(50),
 	state			NVARCHAR(50),
 	county			NVARCHAR(50),	
-	zip				INT,
-	lat				FLOAT,
-	lon				FLOAT
+	zip			INT,
+	lat			FLOAT,
+	lon			FLOAT
 )
 
 IF OBJECT_ID('bronze.payers','U') IS NOT NULL
@@ -64,12 +64,12 @@ IF OBJECT_ID('bronze.payers','U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.payers(
-	id					NVARCHAR(50),
+	id				NVARCHAR(50),
 	name				NVARCHAR(50),
 	address				NVARCHAR(50),	
 	city				NVARCHAR(50),
-	state_headquartered	NVARCHAR(50),
-	zip					INT,
+	state_headquartered		NVARCHAR(50),
+	zip				INT,
 	phone				NVARCHAR(50)
 );
 GO
@@ -81,12 +81,12 @@ GO
 CREATE TABLE bronze.procedures_table(
 	start_datetime			DATETIME,
 	stop_datetime			DATETIME,
-	patient					NVARCHAR(50),
-	encounter				NVARCHAR(50),
-	code					NVARCHAR(50),
-	procedure_description	NVARCHAR(200),
-	base_cost				INT,
-	reason_code				INT,
+	patient				NVARCHAR(50),
+	encounter			NVARCHAR(50),
+	code				NVARCHAR(50),
+	procedure_description		NVARCHAR(200),
+	base_cost			INT,
+	reason_code			INT,
 	reason_description		NVARCHAR(100)
 );
 GO
