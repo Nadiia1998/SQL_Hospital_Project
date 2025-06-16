@@ -53,7 +53,7 @@ CREATE TABLE bronze.patients(
 	address			NVARCHAR(50),
 	city			NVARCHAR(50),
 	state			NVARCHAR(50),
-	county			NVARCHAR(50),	
+	country			NVARCHAR(50),	
 	zip			INT,
 	lat			FLOAT,
 	lon			FLOAT
