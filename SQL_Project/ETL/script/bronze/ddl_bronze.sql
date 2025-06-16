@@ -49,7 +49,7 @@ CREATE TABLE bronze.patients(
 	race			NVARCHAR(50),
 	ethnicity		NVARCHAR(50),
 	gender			NVARCHAR(50),
-	birthPlace		NVARCHAR(100),
+	birth_place		NVARCHAR(100),
 	address			NVARCHAR(50),
 	city			NVARCHAR(50),
 	state			NVARCHAR(50),
