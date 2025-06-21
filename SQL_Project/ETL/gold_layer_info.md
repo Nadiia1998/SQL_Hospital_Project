@@ -2,8 +2,29 @@
 
 #### This document provides a detailed description of the column structure in the SQL database. Each column listed below includes its name,constraints (if any), and a brief explanation of its purpose within the dataset.  Use this as a reference for understanding the schema, validating data integrity, and building queries effectively.
 ---
+#### 📋 fact_encounters
+##### This table records details of clinical encounters for patients, including the type and classification of each encounter, timing, costs, payer information, and associated diagnoses. Each encounter is uniquely identified and linked to a payer and diagnostic codes standardized by SNOMED-CT.
 
-#### 📋 fact_procedure
+| **Column Name**           | **Description**                                                                                                                        |
+| -----------------------   | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `encounter_key`           | **Surrogate key**  Auto-incrementing integer.                                                                                          |
+| `encounter_id`            | **Primary Key** Unique identifier of the encounte.                                                                                     |
+| `patient_id`              | **Foreing Key** Unique identifier of the patient.                                                                                      |
+| `payer_id`                | **Foreign Key** Identifier for the payer (e.g., insurance provider or other coverage entity).                                          |
+| `encounter_class`         | The class of the encounter, such as `ambulatory`, `emergency`, `inpatient`,`outpatient`, `wellness`, or `urgentcare`.                  |
+| `code`                    | Encounter code from **SNOMED-CT**, indicating the standardized classification of the encounter.                                        |
+| `type_encounter`          |  Textual description of the type of encounter (e.g., routine check-up, follow-up visit).                                               |
+| `base_encounter_cost`     | The **base cost of the encounter**, *not including* any line item costs for medications, immunizations, procedures, or other services. |
+| `total_claim_cost`        | The **total cost of the encounter**, including all line item costs.                                                                    |
+| `manual_total_claim_cost` | The **manual calculated cost of the encounter**, including all line item costs.                                                        |
+| `payer_coverage`          | The **amount of cost covered by the payer**, such as an insurance company.                                                             |
+| `diagnosis_code`          | **Diagnosis code from SNOMED-CT**, only if this encounter targeted a specific condition.                                               |
+| `diagnisis_description`   | Description of the diagnosis or reason for the encounter, related to the diagnosis code.                                               |
+| `start_encounter`         | The **start date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                |
+| `end_encounder`           | The **end date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                  |
+---
+
+#### 📋 dim_procedure
 ##### This table contains information about procedures performed on patients, including surgeries and other medical interventions. Each row represents a single procedure and includes metadata such as cost, timing, and reason for the procedure.
 
 | Column Name             | Description                                                                                                          |
@@ -20,25 +41,7 @@
 | `end_procedure`         | The date and time the procedure was completed (if applicable), in **ISO 8601 UTC format** (`yyyy-MM-dd'T'HH:mm'Z'`). |
 ---
 
-#### 📋 dim_encounters
-##### This table records details of clinical encounters for patients, including the type and classification of each encounter, timing, costs, payer information, and associated diagnoses. Each encounter is uniquely identified and linked to a payer and diagnostic codes standardized by SNOMED-CT.
 
-| **Column Name**         | **Description**                                                                                                                        |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `encounter_key`         | **Surrogate key**  Auto-incrementing integer.                                                                                           |
-| `encounter_id`          | **Primary Key** Unique identifier of the encounte.                                                                                      |
-| `payer_id`              | **Foreign Key** Identifier for the payer (e.g., insurance provider or other coverage entity).                                          |
-| `encounter_class`       | The class of the encounter, such as `ambulatory`, `emergency`, `inpatient`,`outpatient`, `wellness`, or `urgentcare`.                  |
-| `code`                  | Encounter code from **SNOMED-CT**, indicating the standardized classification of the encounter.                                        |
-| `type_encounter`        | Textual description of the type of encounter (e.g., routine check-up, follow-up visit).                                                |
-| `base_encounter_cost`   | The **base cost of the encounter**, *not including* any line item costs for medications, immunizations, procedures, or other services. |
-| `total_claim_cost`      | The **total cost of the encounter**, including all line item costs.                                                                    |
-| `payer_coverage`        | The **amount of cost covered by the payer**, such as an insurance company.                                                             |
-| `diagnosis_code`        | **Diagnosis code from SNOMED-CT**, only if this encounter targeted a specific condition.                                               |
-| `diagnisis_description` | Description of the diagnosis or reason for the encounter, related to the diagnosis code.                                               |
-| `start_encounter`       | The **start date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                |
-| `end_encounder`         | The **end date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                  |
----
 
 #### 📋 dim_patients
 ##### This table contains core demographic, geographic, and status information about each patient. Each row represents a unique patient, identified by a primary key. 
