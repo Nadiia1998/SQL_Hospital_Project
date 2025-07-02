@@ -10,6 +10,7 @@ Description:
     This script creates tables in the 'bronze' schema, dropping existing tables 
     if they already exist.
 */
+
 IF OBJECT_ID('bronze.encounters','U') IS NOT NULL
 	DROP table bronze.encounters;
 GO
@@ -27,7 +28,7 @@ CREATE TABLE bronze.encounters (
 	base_encounter_cost		FLOAT,
 	total_claim_cost		FLOAT,
 	payer_coverage			FLOAT,
-	reason_code			BIGINT,
+	reason_code			NVARCHAR(100),
 	reason_description		NVARCHAR(100)
 );
 GO
@@ -79,14 +80,15 @@ IF OBJECT_ID('bronze.procedures_table','U') IS NOT NULL
 GO
 
 CREATE TABLE bronze.procedures_table(
-	start_datetime			DATETIME,
-	stop_datetime			DATETIME,
-	patient				NVARCHAR(50),
-	encounter			NVARCHAR(50),
-	code				NVARCHAR(50),
-	procedure_description		NVARCHAR(200),
-	base_cost			INT,
-	reason_code			INT,
-	reason_description		NVARCHAR(100)
-);
+	start_datetime				DATETIME,
+	stop_datetime				DATETIME,
+	patient					NVARCHAR(50),
+	encounter				NVARCHAR(50),
+	code					NVARCHAR(50),
+	procedure_description			NVARCHAR(200),
+	base_cost				INT,
+	reason_code				NVARCHAR(50),
+	reason_description			NVARCHAR(100)
+);	
 GO
+
