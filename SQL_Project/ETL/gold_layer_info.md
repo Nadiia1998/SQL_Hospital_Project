@@ -11,17 +11,18 @@
 | `encounter_id`            | **Primary Key** Unique identifier of the encounte.                                                                                     |
 | `patient_id`              | **Foreing Key** Unique identifier of the patient.                                                                                      |
 | `payer_id`                | **Foreign Key** Identifier for the payer (e.g., insurance provider or other coverage entity).                                          |
+| `start_encounter`         | The **start date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                |
+| `end_encounder`           | The **end date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                  |
 | `encounter_class`         | The class of the encounter, such as `ambulatory`, `emergency`, `inpatient`,`outpatient`, `wellness`, or `urgentcare`.                  |
 | `code`                    | Encounter code from **SNOMED-CT**, indicating the standardized classification of the encounter.                                        |
 | `type_encounter`          |  Textual description of the type of encounter (e.g., routine check-up, follow-up visit).                                               |
 | `base_encounter_cost`     | The **base cost of the encounter**, *not including* any line item costs for medications, immunizations, procedures, or other services. |
+| `addition pay`            |
+| `discount`                |
 | `total_claim_cost`        | The **total cost of the encounter**, including all line item costs.                                                                    |
-| `manual_total_claim_cost` | The **manual calculated cost of the encounter**, including all line item costs.                                                        |
 | `payer_coverage`          | The **amount of cost covered by the payer**, such as an insurance company.                                                             |
-| `diagnosis_code`          | **Diagnosis code from SNOMED-CT**, only if this encounter targeted a specific condition.                                               |
-| `diagnisis_description`   | Description of the diagnosis or reason for the encounter, related to the diagnosis code.                                               |
-| `start_encounter`         | The **start date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                |
-| `end_encounder`           | The **end date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                  |
+| `reason_code`             | **Diagnosis code from SNOMED-CT**, only if this encounter targeted a specific condition.                                               |
+| `reason_description`      | Description of the diagnosis or reason for the encounter, related to the diagnosis code.                                               |
 ---
 
 #### 📋 dim_procedure
@@ -32,13 +33,13 @@
 | `procedure_key`         | **Surrogate Key.** Auto-incrementing integer.                                                                        |
 | `patient_id`            | **Foreign Key.** Identifier linking the procedure to the corresponding patient.                                      |
 | `encounter_id`          | **Foreign Key.** Identifier linking the procedure to the clinical encounter in which it was performed.               |
+| `start_procedure`       | The date and time the procedure was started, in **ISO 8601 UTC format** (`yyyy-MM-dd'T'HH:mm'Z'`).                   |
+| `end_procedure`         | The date and time the procedure was completed (if applicable), in **ISO 8601 UTC format** (`yyyy-MM-dd'T'HH:mm'Z'`). |
 | `code`                  | Procedure code from **SNOMED-CT**, identifying the specific medical procedure.                                       |
 | `procedure_description` | Textual description of the procedure.                                                                                |
 | `base_cost`             | The line item cost of the procedure (excluding other services).                                                      |
 | `reason_code`           | **SNOMED-CT** diagnosis code specifying the reason this procedure was performed.                                     |
 | `reason_description`    | Description of the reason for the procedure, based on the diagnosis code.                                            |
-| `start_procedure`       | The date and time the procedure was started, in **ISO 8601 UTC format** (`yyyy-MM-dd'T'HH:mm'Z'`).                   |
-| `end_procedure`         | The date and time the procedure was completed (if applicable), in **ISO 8601 UTC format** (`yyyy-MM-dd'T'HH:mm'Z'`). |
 ---
 
 
@@ -49,11 +50,11 @@
 | ------------- | -------------------------------------------------------------------------------------------------------------- |
 | `patient_key` | **Surrogate key** Auto-incrementing integer.                                                                   |
 | `patient_id`  | **Primary Key** Unique identifier of the patient.                                                              |
+| `first_name`  | First name of the patient.                                                                                     |
+| `last_name`   | Last name of the patient.                                                                                      |
 | `birth_date`  | The date the patient was born (`YYYY-MM-DD`).                                                                  |
 | `age`         | Patient’s age, typically calculated based on `birth_date` and either current date or `death_date` if deceased. |
 | `death_date`  | The date the patient died, if applicable (`YYYY-MM-DD`).                                                       |
-| `first_name`  | First name of the patient.                                                                                     |
-| `last_name`   | Last name of the patient.                                                                                      |
 | `gender`      | Gender of the patient:`Male`,`Female`,`n/a`.                                                                   |
 | `marital`     | Marital status: `Single`, `Mariadde`,`n/a`                                                                     |
 | `race`        | Description of the patient’s primary race: `asian`, `black`,`white`,`hawaiian`, `native`,`other`.              |
@@ -76,5 +77,4 @@
 | `headquartered_state` | Abbreviation of the state where the payer is headquartered. |
 | `zip`                 | ZIP or postal code of the payer’s address.                  |
 | `phone`               | Payer's phone number.                                       |
-
 ---
