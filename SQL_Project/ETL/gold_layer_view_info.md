@@ -15,10 +15,10 @@
 | `end_encounder`           | The **end date and time** of the encounter (`yyyy-MM-dd'T'HH:mm'Z'`).                                                                  |
 | `encounter_class`         | The class of the encounter, such as `ambulatory`, `emergency`, `inpatient`,`outpatient`, `wellness`, or `urgentcare`.                  |
 | `code`                    | Encounter code from **SNOMED-CT**, indicating the standardized classification of the encounter.                                        |
-| `type_encounter`          |  Textual description of the type of encounter (e.g., routine check-up, follow-up visit).                                               |
+| `type_encounter`          | Textual description of the type of encounter (e.g., routine check-up, follow-up visit).                                                |
 | `base_encounter_cost`     | The **base cost of the encounter**, *not including* any line item costs for medications, immunizations, procedures, or other services. |
-| `addition pay`            |
-| `discount`                |
+| `addition pay`            | Extra cost above the base procedure and encounter cost.                                                                                |
+| `discount`                | Amount reduced from the original service cost.                                                                                         |
 | `total_claim_cost`        | The **total cost of the encounter**, including all line item costs.                                                                    |
 | `payer_coverage`          | The **amount of cost covered by the payer**, such as an insurance company.                                                             |
 | `reason_code`             | **Diagnosis code from SNOMED-CT**, only if this encounter targeted a specific condition.                                               |
