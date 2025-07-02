@@ -1,24 +1,39 @@
 # 📊 Healthcare Cost & Coverage Dashboard Overview
 
-This Power BI project provides a high-level visualization of healthcare costs, patient demographics, and insurance coverage. The dashboard is designed to support interactive exploration of patterns across age groups, gender, race, encounter types, and payer categories.
+This Power BI project provides a high-level visualization of healthcare costs, patient demographics, and insurance coverage. The dashboard is designed to support interactive exploration of patterns across age groups, gender, race, encounter types, payer categories ets.
 
 ## 🔍 Dashboard Highlights
 
-- **Cost vs. Coverage Trends**:  
-  Line and area charts show how total healthcare costs compare to insurance coverage over time and across different age groups.
+- **Healthcare Cost & Coverage  Overview**:
+  
+  ![Cost and Coverage](./images/main_page.png)
 
-- **Patient Demographics**:  
-  Visuals explore how cost and encounter frequency vary by gender, age, and race.
 
-- **Encounter Classification**:  
-  Bar charts provide a breakdown of healthcare costs and coverage by encounter type (e.g., inpatient, emergency).
+- **Year-over-Year Summary**:
+  
+  ![YOY Statistics](./images/YOY_summary.png)
 
-- **Payer Comparison**:  
-  A detailed visual compares payers by total cost, average coverage, and patient count.
+- **Patient Overview**:
+  
+  ![Patients](./images/patients_overview.png)
+
+- **Encounters Overview**:
+  
+  ![encounters Overview](./images/encounters_statistics.png)
+
+- **Procedures Overview**:
+  
+ ![procedures overview](./images/procedures_statistics.png)
 
 - **Navigation Panel**:  
   Allows quick access to different report sections for focused analysis, including patients, encounters, and procedures.
 
 ## 📁 Explore the File
+
+### 🔍 Key Interactive Features:
+- **Dynamic Filters**: Filter the data by year, gender, age group, race, payer type, and encounter class.
+- **Navigation Pane**: Easily switch between multiple report pages including Patients, Encounters, Procedures, and Cost Overview.
+- **Tooltips**: Hover over charts and KPIs to see detailed values and contextual information.
+- **Responsive Charts**:Most of visuals respond dynamically to user selections, enabling personalized and in-depth exploration.
 
 To fully understand the insights and interact with the visualizations, **please open the Power BI file**. The report allows dynamic filtering and deeper investigation of healthcare patterns.
