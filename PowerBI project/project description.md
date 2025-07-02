@@ -36,4 +36,4 @@ This Power BI project provides a high-level visualization of healthcare costs, p
 - **Tooltips**: Hover over charts and KPIs to see detailed values and contextual information.
 - **Responsive Charts**:Most of visuals respond dynamically to user selections, enabling personalized and in-depth exploration.
 
-To fully understand the insights and interact with the visualizations, **please open the Power BI file**. The report allows dynamic filtering and deeper investigation of healthcare patterns.
+To fully understand the insights and interact with the visualizations, **please open the Power BI file**   [Download Power BI Report](./project/Power%20BI%20hospital%20Project.pbix) The report allows dynamic filtering and deeper investigation of healthcare patterns.
